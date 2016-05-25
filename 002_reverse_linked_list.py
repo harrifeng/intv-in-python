@@ -37,7 +37,9 @@ class Solution(object):
         """
         if head is None or head.next is None:
             return head
+
+        old = head.next
         tmp = self.reverse(head.next)
-        head.next.next = head
-        head.next = None
+        head.next = old.next
+        old.next = head
         return tmp
